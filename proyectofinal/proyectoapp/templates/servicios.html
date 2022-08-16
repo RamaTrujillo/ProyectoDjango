@@ -1,5 +1,14 @@
-<html>
-    <body>
-        serv
-    </body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+{%for i in servicios%}
+<h2 style="color:white">{{i.titulo}}</h2>
+<p style="color:white">{{i.contenido}}</p>
+<p><img src={{i.imagen.url}}></p>
+{%endfor%}
+<body>
+    <p>
+        
+    </p>
+</body>
+{%endblock%}

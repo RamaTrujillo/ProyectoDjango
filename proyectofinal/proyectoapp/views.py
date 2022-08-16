@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponse
+from appservicios.models import Servicio
 
 def home(request):
     return render(request, 'home.html')
 
 def servicios(request):
-     return render(request, 'servicios.html')
+     serv=Servicio.objects.all()
+     return render(request, 'servicios.html', {"servicios":serv})
 
 def tienda(request):
      return render(request, 'tienda.html')
