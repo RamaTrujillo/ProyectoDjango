@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+<body>
+    <div class="contenedorFormulario">
+        <form action="POST" style="text-align:center ;">
+            {% csrf_token %}
+        <table style="color:antiquewhite ; margin: auto; ">
+            {{miform.as_table}}
+        </table>
+        <input type="submit" value="Enviar" style="width: 150px;">
+
+    </form>
+    </div>
+</body>
+{%endblock%}
