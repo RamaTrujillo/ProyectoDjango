@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'proyectoapp',
     'appservicios',
     'appblog',
-    'appcontacto', ##ir agregando las apps
+    'appcontacto',
+    'apptienda', ##ir agregando las apps
+    'appcarrito',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'proyectofinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["ProyectoFinal/proyectofinal/proyectoapp/templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'appcarrito.context_processor.importe_total'
             ],
         },
     },

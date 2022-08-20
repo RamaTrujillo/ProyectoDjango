@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+<div class="container">
+  <div style="float:right; margin: 10px;">
+    {% include "widget.html" %}
+  </div>
+  <div class="row" >
+{%for i in productos %}
+      <div class="col-md-4" >
+        <div class="card" style="margin:5px; height:360px ;width:260px;">
+        <img class="card-img-top" src="{{i.imagen.url}}" style="height: 180px;">
+      <div class="card-body" style="text-align: center;" >
+          <h7 class="card-title">{{i.nombre}}</h7>
+          <p class="card-test">$ {{i.precio}}</p>
+        </div>
+          <div class="card-footer text-center" style="height:70px;" >
+            <a href="{% url 'carrito:agregar' i.id%}" class="btn btn-success" style="margin-bottom:10px;">Agregar al Carrito</a>
+         </div>
+      </div>
+        
+    </div>
+
+{%endfor%}
+    </div>
+  </div>
+
+
+{%endblock%}
