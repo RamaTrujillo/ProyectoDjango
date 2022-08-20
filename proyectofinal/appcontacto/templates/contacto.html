@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+<body>
+    <div class="contenedorFormulario">
+        {% if "valido" in request.GET %}
+        <h2 style="color:white ;">Recibido, gracias!</h2>
+
+        {% endif %}
+        <form action="" method="POST" style="text-align:center">
+            {% csrf_token %}
+        <table style="color:antiquewhite; margin: auto; ">
+            {{miform.as_table}}
+        </table>
+        <input type="submit" value="Enviar" style="width: 150px;">
+
+    </form>
+    </div>
+</body>
+{%endblock%}

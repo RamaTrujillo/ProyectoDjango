@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+{%for i in post%}
+<section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{i.imagen.url}}" alt="" style="width: 50%">
+        <div class="introclar
+        -text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{i.titulo}}</span>
+          </h2>
+          <p class="mb-3">{{i.autor}} {{i.categoria}}>
+          <p class="mb-3">{{i.contenido}}>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+{%endfor%}
+
+<section>
+    <div style="width:75%; background-color:bisque; text-align: center; margin:auto;">
+        Categorias:
+    {% for i in post%}
+        {%for i in i.categorias.all %}
+
+        <a href="{% url 'categoria' i.id %}" > {{i.nombre}} </a> <!-- para crear hiperviculos, paso como parametro la url y el id -->
+
+        {% endfor %}
+    {% endfor %}
+    </div>
+</section>
+{%endblock%}

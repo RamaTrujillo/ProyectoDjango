@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'proyectoapp'
+    'proyectoapp',
+    'appservicios',
+    'appblog',
+    'appcontacto',
+    'apptienda', ##ir agregando las apps
+    'appcarrito',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +60,7 @@ ROOT_URLCONF = 'proyectofinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["ProyectoDjango/ProyectoFinal/ProyectoDjango/proyectofinal/proyectoapp/templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'appcarrito.context_processor.importe_total'
             ],
         },
     },
@@ -119,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL= '/media/' #donde guardar las imagenes
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media') #le digo a django donde buscarlas
