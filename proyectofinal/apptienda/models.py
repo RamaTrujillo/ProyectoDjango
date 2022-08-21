@@ -18,6 +18,7 @@ class Producto(models.Model):
     imagen=models.ImageField(null=True, blank=True)
     precio=models.FloatField()
     disponibilidad=models.BooleanField()
+    stock=models.PositiveIntegerField()
     created=models.DateTimeField(auto_now_add=True)
     updated=models.DateTimeField(auto_now_add=True)
     

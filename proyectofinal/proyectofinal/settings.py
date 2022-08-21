@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as mensajes_de_error
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,6 +45,10 @@ INSTALLED_APPS = [
     'appcontacto',
     'apptienda', ##ir agregando las apps
     'appcarrito',
+    'appautenticacion',
+    'crispy_forms',
+    'apppedidos',
+
 ]
 
 MIDDLEWARE = [
@@ -110,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
@@ -127,3 +133,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL= '/media/' #donde guardar las imagenes
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media') #le digo a django donde buscarlas
+
+CRISPY_TEMPLATE_PACK='bootstrap4'#le digo a crispy forms q cargue las cosas en bootstrap
+
+MESSAGE_TAGS={
+    mensajes_de_error.DEBUG: "debug",
+    mensajes_de_error.INFO: "info",
+    mensajes_de_error.SUCCESS: "success",
+    mensajes_de_error.WARNING: "warning",
+    mensajes_de_error.ERROR: "danger"
+}

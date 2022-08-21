@@ -18,7 +18,7 @@
         <tr>
             <th>Producto: </th>
             <th>Cantidad: </th>
-            <th>Total:</th>
+            <th>Total: </th>
 
 
         </tr>
@@ -38,14 +38,13 @@
                         {{value.cantidad}}
                     </td>
                     <td>
-                        <a href="{% url 'carrito:agregar' value.producto_id %}" class="btn btn-sm btn-success" >+</a>
-                        <a href="{% url 'carrito:restar' value.producto_id %}" class="btn btn-sm btn-success" >-</a>
+                        <a href="{% url 'carrito:agregar' value.producto_id %}" class="btn btn-sm btn-success" > + </a>
+                        <a href="{% url 'carrito:restar' value.producto_id %}" class="btn btn-sm btn-success" > - </a>
                         <br>
                         $ {{value.precio}}
                     </td>
 
                 </tr>
-
 
             {% endfor %}
         {% else %}
@@ -60,10 +59,18 @@
     <tfoot>
         <tr>
             <td colspan="3">
-                Total:{{importe_total}}
+                Total:$ {{importe_total}}
 
             </td>
         </tr>
+        {% if request.session.carrito.items %}
+        <tr>
+            <td colspan="3" style="text-align:center ;">
+
+                <a href="#" class="btn btn-sm btn-success"> Comprar</a>
+            </td>
+        </tr>
+        {%endif%}
     </tfoot>
 
 
